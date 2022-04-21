@@ -1,0 +1,18 @@
+#pix{
+    height:180px;
+
+}
+
+figcaption{
+    text-align: center;
+}
+
+img{
+    text-align: center;
+}
+
+.figure {
+    display: table;margin-right: auto;margin-left: auto;
+}
+
+.figure-caption {display: table-caption;caption-side: bottom;text-align: center;}

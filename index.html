@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Divisor de tensão (alpha)</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 align="center" class="display-4">Calculadora para divisor de tensão</h1>
+            <hr class="my-4">
+            <p>$$ V_{out} = V_{in} \dfrac{R_2}{R_1+R_2} $$</p>
+
+            <figure class="figure">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Voltage_divider.svg" alt="pix" class="img-thumbnail">
+                <figcaption class="figure-caption text-center">Diagrama do circuito divisor de tensão</figcaption>
+            </figure>
+
+            <p class="lead">Esta é uma simples ferramenta para calcular os valores de resistência para os resistores e tensões num circuito divisor de tensão. <br> Para utilizar, preencha 3 dos 5 campos, exceto:<ul>
+            <li>Fator, R<sub>1</sub> e R<sub>2</sub></li>
+            <li>Fator, V<sub>in</sub> e V<sub>out</sub></li>
+        </ul>.</p>
+            <hr class="my-4">
+
+
+            <div>
+                <div class="form-group">
+                    <label for="RATIO">Fator (\(V_{out}/V_{in}\))</label>
+                    <input onchange="divide('ratio')" onkeyup="divide('ratio')" class="form-control" type="number" name="RATIO" id="RATIO" placeholder="Fator de divisão de tensão.">
+                    <small id="ratio-help" class="form-text text-muted">Insira o fator percentual de divisão na forma decimal, Ex.: (10V -> 5V: redução de 50% -> 0.5)</small>
+                </div>
+                <div class="form-group">
+                    <label for="VOUT">Tensão de Saída \(V_{out}\)</label>
+                    <input onchange="divide('vout')" onkeyup="divide('vout')"  class="form-control" type="number" name="VOUT" id="VOUT" placeholder="Valor da tensão de saída.">
+                    <small id="vout-help" class="form-text text-muted">Insira o valor da tensão de saída em V (volts).</small>
+                </div>
+                <div class="form-group">
+                    <label for="VIN">Tensão de Entrada \(V_{in}\)</label>
+                    <input onchange="divide('vin')" onkeyup="divide('vin')"  class="form-control" type="number" name="VIN" id="VIN" placeholder="Valor da tensão de entrada.">
+                    <small id="vin-help" class="form-text text-muted">Insira o valor da tensão de entrada em V (volts).</small>
+                </div>
+                <div class="form-group">
+                    <label for="R1">Resistor \(R_{1}\)</label>
+                    <input onchange="divide('r1')" onkeyup="divide('r1')" class="form-control" type="number" name="R1" id="R1" placeholder="Valor do resistor R1">
+                    <small id="r1-help" class="form-text text-muted">Insira o valor do resistor R1 em Ω (Ohms).</small>
+                </div>
+                <div class="form-group">
+                    <label for="R2">Resistor \(R_{2}\)</label>
+                    <input onchange="divide('r2')" onkeyup="divide('r2')" class="form-control" type="number" name="R2" id="R2" placeholder="Valor do resistor R2">
+                    <small id="r2-help" class="form-text text-muted">Insira o valor do resistor R2 em Ω (Ohms).</small>
+                </div>
+            </div>
+            <button type="button" class="btn btn-dark" onclick="clr()">Limpar</button>
+            <hr class="my-lg-4">
+            <figure class="figure" onclick="copyPixKey()">
+                <img id="pix" src="pix.jpeg" alt="pix" class="img-thumbnail">
+                <figcaption class="figure-caption text-center">Gostou? faça um Pix usando o código, ou clique sobre a imagem para copiar a chave:</figcaption>
+            </figure>
+        </div>
+        <div class="footer" style="text-align: center"><p class="small">Copyright Isaias Velasquez (linkedin.com/in/vlaskz) 2022</p></div>
+    </div>
+    
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</body>
+</html>
