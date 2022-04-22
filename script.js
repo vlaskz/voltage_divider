@@ -38,68 +38,70 @@ function divide(el){
         hideAll()
         document.getElementById('formula_r2').style["display"] = "block"
         console.log(`calculating from ${c1} variables`)
-        vin.value = vout.value/ratio.value
-        res2.value = (ratio.value*res1.value)/(1-ratio.value)
+        vin.valueAsNumber = vout.valueAsNumber/ratio.valueAsNumber
+        res2.valueAsNumber = (ratio.valueAsNumber*res1.valueAsNumber)/(1-ratio.valueAsNumber)
     }
     if(c2.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_r1').style["display"] = "block"
         console.log(`calculating from ${c2} variables`)
-        vin.value = vout.value/ratio.value
-        res1.value = res2.value * (1+(1/ratio.value))
+        vin.valueAsNumber = vout.valueAsNumber/ratio.valueAsNumber
+        res1.valueAsNumber = res2.valueAsNumber * (1+(1/ratio.valueAsNumber))
     }
     if(c3.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_r2').style["display"] = "block"
         console.log(`calculating from ${c3} variables`)
-        vout.value = ratio.value / vin.value
-        res2.value = (ratio.value*res1.value)/(1-ratio.value)
+        vout.valueAsNumber = ratio.valueAsNumber / vin.valueAsNumber
+        res2.valueAsNumber = (ratio.valueAsNumber*res1.valueAsNumber)/(1-ratio.valueAsNumber)
     }
     if(c4.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_r1').style["display"] = "block"
         console.log(`calculating from ${c4} variables`)
-        vout.value = ratio.value / vin.value
-        res1.value = res2.value * (1+(1/ratio.value))
+        vout.valueAsNumber = ratio.valueAsNumber / vin.valueAsNumber
+        res1.valueAsNumber = res2.valueAsNumber * (1+(1/ratio.valueAsNumber))
     }
     if(c5.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_r2').style["display"] = "block"
         console.log(`calculating from ${c5} variables`)
-        ratio.value = vout.value / vin.value
-        res2.value = (ratio.value*res1.value)/(1-ratio.value)
+        ratio.valueAsNumber = vout.valueAsNumber / vin.valueAsNumber
+        res2.valueAsNumber = (ratio.valueAsNumber*res1.valueAsNumber)/(1-ratio.valueAsNumber)
     }
     if(c6.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_r1').style["display"] = "block"
         console.log(`calculating from ${c6} variables`)
-        ratio.value = vout.value / vin.value
-        res1.value = res2.value * (1+(1/ratio.value))
+        ratio.valueAsNumber = vout.valueAsNumber / vin.valueAsNumber
+        res1.valueAsNumber = res2.valueAsNumber * (1+(1/ratio.valueAsNumber))
     }
     if(c7.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_vin').style["display"] = "block"
         console.log(`calculating from ${c7} variables`)
-        vin.value = (vout.value*(res1.value+res2.value))/res2.value
-        ratio.value = vout.value/vin.value
+        vin.valueAsNumber = (vout.valueAsNumber*(res1.valueAsNumber+res2.valueAsNumber))/res2.valueAsNumber
+        ratio.valueAsNumber = vout.valueAsNumber/vin.valueAsNumber
     }
     if(c8.every(i=>queue.includes(i))){
         hideAll()
         document.getElementById('formula_vout').style["display"] = "block"
         console.log(`calculating from ${c8} variables`)
-        vout.value = vin.value*res2.value/(res1.value+res2.value)
-        ratio.value = vout.value/vin.value
+        console.log(vin.valueAsNumber, res2.valueAsNumber, res1.valueAsNumber)
+        console.log(res2.valueAsNumber + res1.valueAsNumber)
+        vout.valueAsNumber = vin.valueAsNumber*(res2.valueAsNumber/(res1.valueAsNumber+res2.valueAsNumber))
+        ratio.valueAsNumber = vout.valueAsNumber/vin.valueAsNumber
     }
 }
 
 function clr(){
     console.log("Cleared")
     queue = []
-    ratio.value = ''
-    vout.value = ''
-    vin.value = ''
-    res1.value = ''
-    res2.value = ''
+    ratio.valueAsNumber = ''
+    vout.valueAsNumber = ''
+    vin.valueAsNumber = ''
+    res1.valueAsNumber = ''
+    res2.valueAsNumber = ''
 }
 
 function copyPixKey(){
