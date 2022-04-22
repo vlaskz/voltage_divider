@@ -87,8 +87,6 @@ function divide(el){
         hideAll()
         document.getElementById('formula_vout').style["display"] = "block"
         console.log(`calculating from ${c8} variables`)
-        console.log(vin.valueAsNumber, res2.valueAsNumber, res1.valueAsNumber)
-        console.log(res2.valueAsNumber + res1.valueAsNumber)
         vout.valueAsNumber = vin.valueAsNumber*(res2.valueAsNumber/(res1.valueAsNumber+res2.valueAsNumber))
         ratio.valueAsNumber = vout.valueAsNumber/vin.valueAsNumber
     }
