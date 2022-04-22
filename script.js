@@ -3,6 +3,7 @@ let vout = document.getElementById('VOUT')
 let vin = document.getElementById('VIN')
 let res1 = document.getElementById('R1')
 let res2 = document.getElementById('R2')
+let fml = document.getElementById('formula')
 
 
 let queue = []
@@ -24,42 +25,67 @@ function divide(el){
     let c6 = ['vout','vin','r2']
     let c7 = ['vout', 'r1','r2']
     let c8 = ['vin', 'r1','r2']
+
+    function hideAll(){
+        document.getElementById('formula_r1').style["display"] = "none"
+        document.getElementById('formula_r2').style["display"] = "none"
+        document.getElementById('formula_vin').style["display"] = "none"
+        document.getElementById('formula_vout').style["display"] = "none"
+    }
+
+
     if(c1.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_r2').style["display"] = "block"
         console.log(`calculating from ${c1} variables`)
         vin.value = vout.value/ratio.value
         res2.value = (ratio.value*res1.value)/(1-ratio.value)
     }
     if(c2.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_r1').style["display"] = "block"
         console.log(`calculating from ${c2} variables`)
         vin.value = vout.value/ratio.value
         res1.value = res2.value * (1+(1/ratio.value))
     }
     if(c3.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_r2').style["display"] = "block"
         console.log(`calculating from ${c3} variables`)
         vout.value = ratio.value / vin.value
         res2.value = (ratio.value*res1.value)/(1-ratio.value)
     }
     if(c4.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_r1').style["display"] = "block"
         console.log(`calculating from ${c4} variables`)
         vout.value = ratio.value / vin.value
         res1.value = res2.value * (1+(1/ratio.value))
     }
     if(c5.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_r2').style["display"] = "block"
         console.log(`calculating from ${c5} variables`)
         ratio.value = vout.value / vin.value
         res2.value = (ratio.value*res1.value)/(1-ratio.value)
     }
     if(c6.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_r1').style["display"] = "block"
         console.log(`calculating from ${c6} variables`)
         ratio.value = vout.value / vin.value
         res1.value = res2.value * (1+(1/ratio.value))
     }
     if(c7.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_vin').style["display"] = "block"
         console.log(`calculating from ${c7} variables`)
         vin.value = (vout.value*(res1.value+res2.value))/res2.value
         ratio.value = vout.value/vin.value
     }
     if(c8.every(i=>queue.includes(i))){
+        hideAll()
+        document.getElementById('formula_vout').style["display"] = "block"
         console.log(`calculating from ${c8} variables`)
         vout.value = vin.value*res2.value/(res1.value+res2.value)
         ratio.value = vout.value/vin.value

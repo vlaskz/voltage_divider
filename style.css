@@ -16,3 +16,7 @@ img{
 }
 
 .figure-caption {display: table-caption;caption-side: bottom;text-align: center;}
+
+#formula_r2, #formula_r1, #formula_vin, #formula_vout{
+    display: none ;
+}

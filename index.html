@@ -24,11 +24,17 @@
             <p class="lead">Esta é uma simples ferramenta para calcular os valores de resistência para os resistores e tensões num circuito divisor de tensão. <br> Para utilizar, preencha 3 dos 5 campos, exceto:<ul>
             <li>Fator, R<sub>1</sub> e R<sub>2</sub></li>
             <li>Fator, V<sub>in</sub> e V<sub>out</sub></li>
-        </ul>.</p>
+        </ul></p>
             <hr class="my-4">
-
-
             <div>
+                <p class="formula" id="formula_r2">Assumindo que \( x = \dfrac{V_{out}}{V_{in}} \),
+                $$R_2 = \dfrac{xR_1}{1-x}$$</p>
+                <p class="formula" id="formula_r1">Assumindo que \( x = \dfrac{V_{out}}{V_{in}} \),
+                    $$R_1 = R_2\Bigg(1+\dfrac{1}{x}\Bigg)$$</p>
+                <p class="formula" id="formula_vin">
+                    $$V_{in} = V_{out}\dfrac{R_1+R_2}{R_2}$$</p>
+                <p class="formula" id="formula_vout">
+                    $$V_{out} = V_{in}\dfrac{R_2}{R_1+R_2}$$</p>
                 <div class="form-group">
                     <label for="RATIO">Fator (\(V_{out}/V_{in}\))</label>
                     <input onchange="divide('ratio')" onkeyup="divide('ratio')" class="form-control" type="number" name="RATIO" id="RATIO" placeholder="Fator de divisão de tensão.">
